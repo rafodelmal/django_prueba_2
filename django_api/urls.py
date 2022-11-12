@@ -20,5 +20,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
     path('', include('pages.urls')), # Add by me for new page
 ]
+
+handler404 = 'pages.views.handler404'

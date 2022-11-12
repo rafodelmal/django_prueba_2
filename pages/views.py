@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 from pages.forms.formLogin import LoginForm
@@ -11,8 +11,20 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
+class RegisterPageView(TemplateView):
+    template_name = 'register.html'
+    
+class BlockPageView(TemplateView):
+    template_name = 'bloque.html'
+
+class BlockchainPageView(TemplateView):
+    template_name = 'blockchain.html'
+
 
 # Create your views here.
+
+def handler404(request, *args, **kwargs):
+    return HttpResponseRedirect('/')
 
 def homePageView(request):
     return HttpResponse("Hello, World!")
